@@ -67,7 +67,46 @@ Successfully installed 'EntityFramework 6.2.0' to MusicDbCodeFirst
   <connectionStrings>    
     <add name="MusicDbConnection"
     connectionString="Data Source=(LocalDb)\MSSQLLocalDB;
-    Initial Catalog=MusicDb;Integrated Security=SSPI" 
+    Initial Catalog=MusicDb;Integrated Security=SSPI"
     providerName="System.Data.SqlClient" />
   </connectionStrings>
+```
+
+
+
+&nbsp;
+## 02 Add dbContext and migrations
+
+* Add the *db* context, which inherits from System.Data.Entity.DbContext. Setup the DbSets for the data classes and the constructor which calls the base constructor overload that points at *MusicDbConnection* .
+
+```
+    public class db : DbContext
+    {
+        public DbSet<Person> People { get; set; }
+        public DbSet<Band> Bands { get; set; }
+
+        public db() : base("name=MusicDbConnection") { }
+    }
+```
+
+* Enable migrations.
+
+```
+PM> enable-migrations
+Checking if the context targets an existing database...
+Code First Migrations enabled for project MusicDbCodeFirst.
+```
+
+* Add a migration.
+
+```
+PM> add-migration Initial
+Scaffolding migration 'Initial'.
+...
+```
+
+```
+PM> update-database
+...
+Running Seed method.
 ```
