@@ -1,6 +1,5 @@
-﻿# MusicDb
 ## Music Database Code First
-
+Create a database about music with the Entity Framework using the Code First aproach
 
 
 &nbsp;
@@ -47,4 +46,28 @@ namespace MusicDbCodeFirst
 
     }
 }
+```
+
+
+&nbsp;
+## 01 Add Entity and configure ConnectionStrings
+
+* Install EF.
+
+```
+PM> install-package EntityFramework
+...
+Successfully installed 'EntityFramework 6.2.0' to MusicDbCodeFirst
+```
+
+* Add a connection to the *MusicDb* database (already created with MSSMS).
+
+*App.config*
+```
+  <connectionStrings>    
+    <add name="MusicDbConnection"
+    connectionString="Data Source=(LocalDb)\MSSQLLocalDB;
+    Initial Catalog=MusicDb;Integrated Security=SSPI" 
+    providerName="System.Data.SqlClient" />
+  </connectionStrings>
 ```
