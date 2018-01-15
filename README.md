@@ -1,9 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿# MusicDb
+## Music Database Code First
 
+
+
+&nbsp;
+## 00 Start project
+
+* New Console App (.NET Framework).
+
+*Program.cs*
+```
 namespace MusicDbCodeFirst
 {
     class Program
@@ -39,6 +45,6 @@ namespace MusicDbCodeFirst
             public string Name { get; set; }                        
         }     
 
-
     }
 }
+```
