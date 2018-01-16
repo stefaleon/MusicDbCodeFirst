@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MusicDbCodeFirst
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
@@ -22,31 +21,10 @@ namespace MusicDbCodeFirst
                 new Band { Id = 1, Name = "AC/DC" },
                 new Band { Id = 2, Name = "Motörhead" }
             };
+
+            foreach (var person in people) { Console.WriteLine(person.Name); }
+            foreach (var band in bands) { Console.WriteLine(band.Name); }
         }
-
-        public class db : DbContext
-        {
-            public DbSet<Person> People { get; set; }
-            public DbSet<Band> Bands { get; set; }
-
-            public db() : base("name=MusicDbConnection") { }
-        }
-
-
-        public class Person
-        {
-            public int Id { get; set; }
-
-            public string Name { get; set; }           
-
-        }
-
-        public class Band
-        {
-            public int Id { get; set; }
-
-            public string Name { get; set; }                        
-        }     
 
 
     }

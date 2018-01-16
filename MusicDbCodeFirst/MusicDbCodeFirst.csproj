@@ -49,11 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Band.cs" />
+    <Compile Include="db.cs" />
     <Compile Include="Migrations\201801151416361_Initial.cs" />
     <Compile Include="Migrations\201801151416361_Initial.Designer.cs">
       <DependentUpon>201801151416361_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801151437532_BandPeopleManyToMany.cs" />
+    <Compile Include="Migrations\201801151437532_BandPeopleManyToMany.Designer.cs">
+      <DependentUpon>201801151437532_BandPeopleManyToMany.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801151416361_Initial.resx">
       <DependentUpon>201801151416361_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801151437532_BandPeopleManyToMany.resx">
+      <DependentUpon>201801151437532_BandPeopleManyToMany.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
