@@ -113,7 +113,7 @@ Running Seed method.
 
 
 &nbsp;
-## 03 Relate bands and People
+## 03 Relate bands and people
 
 * Move classes to their own files and add relationships.
 
