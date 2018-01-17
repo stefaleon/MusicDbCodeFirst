@@ -319,3 +319,26 @@ public override void Up()
 ```
 PM> update-database
 ```
+
+
+
+&nbsp;
+## 06 Access persistent data from the database
+
+* Access the *db* context by creating the *database* instance and read people and bands data.
+
+```
+var database = new db();
+
+var people = database.People.ToList();
+var bands = database.Bands.ToList();
+
+foreach (var person in people)
+{
+    Console.WriteLine($"In People there is {person.Name}.");
+}
+foreach (var band in bands)
+{
+    Console.WriteLine($"In Bands there is {band.Name}.");
+}
+```
