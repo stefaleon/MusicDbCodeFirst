@@ -342,3 +342,89 @@ foreach (var band in bands)
     Console.WriteLine($"In Bands there is {band.Name}.");
 }
 ```
+
+
+&nbsp;
+## 07 Populate PersonBands with a migration
+
+
+* Create an empty migration.
+
+```
+PM> add-migration PopulatePersonBands
+Scaffolding migration 'PopulatePersonBands'.
+```
+```
+namespace MusicDbCodeFirst.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+
+    public partial class PopulatePersonBands : DbMigration
+    {
+        public override void Up()
+        {
+        }
+
+        public override void Down()
+        {
+        }
+    }
+}
+```
+
+* Edit the Up method.
+
+```
+namespace MusicDbCodeFirst.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+    using static MusicDbCodeFirst.Program;
+
+    public partial class PopulatePersonBands : DbMigration
+    {
+        public override void Up()
+        {
+            var database = new db();            
+            Band currentBand;
+            Person currentPerson;
+
+            currentBand = database.Bands.Where(b => b.Name == "AC/DC").SingleOrDefault();
+            currentPerson = database.People.Where(p => p.Name == "Bon Scott").SingleOrDefault();
+            Sql($"INSERT INTO PersonBands (Person_Id, Band_Id) VALUES ({currentPerson.Id}, {currentBand.Id})");
+
+            currentBand = database.Bands.Where(b => b.Name == "AC/DC").SingleOrDefault();
+            currentPerson = database.People.Where(p => p.Name == "Angus Young").SingleOrDefault();
+            Sql($"INSERT INTO PersonBands (Person_Id, Band_Id) VALUES ({currentPerson.Id}, {currentBand.Id})");
+
+            currentBand = database.Bands.Where(b => b.Name == "Motörhead").SingleOrDefault();
+            currentPerson = database.People.Where(p => p.Name == "Lemmy").SingleOrDefault();
+            Sql($"INSERT INTO PersonBands (Person_Id, Band_Id) VALUES ({currentPerson.Id}, {currentBand.Id})");
+
+            currentBand = database.Bands.Where(b => b.Name == "Deep Purple").SingleOrDefault();
+            currentPerson = database.People.Where(p => p.Name == "Ritchie Blackmore").SingleOrDefault();
+            Sql($"INSERT INTO PersonBands (Person_Id, Band_Id) VALUES ({currentPerson.Id}, {currentBand.Id})");
+
+            currentBand = database.Bands.Where(b => b.Name == "Rainbow").SingleOrDefault();
+            currentPerson = database.People.Where(p => p.Name == "Ritchie Blackmore").SingleOrDefault();
+            Sql($"INSERT INTO PersonBands (Person_Id, Band_Id) VALUES ({currentPerson.Id}, {currentBand.Id})");
+
+            currentBand = database.Bands.Where(b => b.Name == "Rainbow").SingleOrDefault();
+            currentPerson = database.People.Where(p => p.Name == "Ronnie James Dio").SingleOrDefault();
+            Sql($"INSERT INTO PersonBands (Person_Id, Band_Id) VALUES ({currentPerson.Id}, {currentBand.Id})");
+        }
+
+        public override void Down()
+        {
+        }
+    }
+}
+```
+
+* By updating, the bridge table in the database is being seeded with the relations described above.
+
+```
+PM> update-database
+```

@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201801170744186_PopulateBands.Designer.cs">
       <DependentUpon>201801170744186_PopulateBands.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801171130278_PopulatePersonBands.cs" />
+    <Compile Include="Migrations\201801171130278_PopulatePersonBands.Designer.cs">
+      <DependentUpon>201801171130278_PopulatePersonBands.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801170744186_PopulateBands.resx">
       <DependentUpon>201801170744186_PopulateBands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801171130278_PopulatePersonBands.resx">
+      <DependentUpon>201801171130278_PopulatePersonBands.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
