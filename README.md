@@ -223,3 +223,99 @@ namespace MusicDbCodeFirst
     }
 }
 ```
+
+
+
+
+&nbsp;
+## 05 Populate People and Bands with migrations
+
+
+* Create an empty migration.
+
+```
+PM> add-migration PopulatePeople
+Scaffolding migration 'PopulatePeople'.
+```
+```
+namespace MusicDbCodeFirst.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+
+    public partial class PopulatePeople : DbMigration
+    {
+        public override void Up()
+        {
+        }
+
+        public override void Down()
+        {
+        }
+    }
+}
+```
+
+* Then call the *Sql* method and type in SQL statements.
+
+```
+public override void Up()
+{
+  Sql("INSERT INTO People (Name) VALUES ('Bon Scott')");
+  Sql("INSERT INTO People (Name) VALUES ('Angus Young')");
+  Sql("INSERT INTO People (Name) VALUES ('Lemmy')");
+  Sql("INSERT INTO People (Name) VALUES ('Ritchie Blackmore')");
+  Sql("INSERT INTO People (Name) VALUES ('Ronnie James Dio')");
+}
+```
+
+* By updating, we can seed the People data to the database.
+
+```
+PM> update-database
+```
+
+
+
+* Create another empty migration, now for the bands.
+
+```
+PM> add-migration PopulateBands
+Scaffolding migration 'PopulateBands'.
+```
+```
+namespace MusicDbCodeFirst.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+
+    public partial class PopulateBands : DbMigration
+    {
+        public override void Up()
+        {
+        }
+
+        public override void Down()
+        {
+        }
+    }
+}
+```
+
+* Then call the *Sql* method and type in SQL statements.
+
+```
+public override void Up()
+{
+  Sql("INSERT INTO Bands (Name) VALUES ('AC/DC')");
+  Sql("INSERT INTO Bands (Name) VALUES ('Motörhead')");
+  Sql("INSERT INTO Bands (Name) VALUES ('Deep Purple')");
+  Sql("INSERT INTO Bands (Name) VALUES ('Rainbow')");
+}
+```
+
+* By updating, we can seed the Bands data to the database.
+
+```
+PM> update-database
+```

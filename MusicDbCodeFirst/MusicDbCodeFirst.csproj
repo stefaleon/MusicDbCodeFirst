@@ -59,6 +59,14 @@
     <Compile Include="Migrations\201801151437532_BandPeopleManyToMany.Designer.cs">
       <DependentUpon>201801151437532_BandPeopleManyToMany.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801170741144_PopulatePeople.cs" />
+    <Compile Include="Migrations\201801170741144_PopulatePeople.Designer.cs">
+      <DependentUpon>201801170741144_PopulatePeople.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801170744186_PopulateBands.cs" />
+    <Compile Include="Migrations\201801170744186_PopulateBands.Designer.cs">
+      <DependentUpon>201801170744186_PopulateBands.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -74,6 +82,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801151437532_BandPeopleManyToMany.resx">
       <DependentUpon>201801151437532_BandPeopleManyToMany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801170741144_PopulatePeople.resx">
+      <DependentUpon>201801170741144_PopulatePeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801170744186_PopulateBands.resx">
+      <DependentUpon>201801170744186_PopulateBands.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
